@@ -1,0 +1,39 @@
+﻿@model CharacterSorterSite.Models.Character
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Status Summary</h1>
+
+<div>
+    <h4>Character</h4>
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VoteCount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VoteCount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterImage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterImage)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <!-- TO DO: Edit link goes here  -->
+    <!-- TO DO: Delete link goes here  -->
+    <a asp-controller="Characters" asp-action="Index">Back to List</a>
+</div>

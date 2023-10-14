@@ -1,0 +1,101 @@
+﻿@model CharacterSorterSite.ViewModels.FranchiseViewModel
+
+<h1>Balsimiq Page 1</h1>
+
+<div class="container border border-5 border-dark">
+    <div class="row">
+        <div class="col height1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col height2 border border-3 border-dark text-center ">
+            <label for="firstboxText" class="border border-3 border-dark">
+                Welcome to the Character sorter, where you will be putting
+                characters from different game franchises, anime, or manga to
+                comfortably sort who is really your favourites
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col border border-3 border-dark center-this-button">
+            <a asp-controller="CentralPage" asp-action="Index" class="btn btn-danger">
+                Proceed
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col height2 border border-3 border-dark text-center">
+            <label for="firstboxText">Choose your filters below </label>
+        </div>
+    </div>
+
+    <div class="row row-cols-3">
+        @foreach (Franchise franchise in Model.Franchises)
+        {
+            @if (Model.SelectAll == true)
+            {
+                <div class="col">
+                    <div class="form-check-input-active-filter">
+                        <input class="form-check-input" checked type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            @franchise.Name
+
+                        </label>
+                    </div>
+                </div>
+            }
+            else if (Model.DeselectAll == true)
+            {
+                <div class="col">
+                    <div class="form-check-input-active-filter">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            @franchise.Name
+                        </label>
+                    </div>
+                </div>
+            }
+            else if (franchise.Name == "Naruto")
+            {
+                <div class="col">
+                    <div class="form-check-input-active-filter">
+                        <input class="form-check-input" checked type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            @franchise.Name
+
+                        </label>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="col">
+                    <div class="form-check-input-active-filter">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            @franchise.Name
+
+                        </label>
+                    </div>
+                </div>
+            }
+        }
+
+
+
+
+    </div>
+    <div class="row justify-content-between">
+        <div class="col-auto">
+            <a asp-controller="Home" asp-action="SelectAllFranchises" class="btn btn-primary">Select All</a>
+        </div>
+        <div class="col-auto">
+            <a asp-controller="Home" asp-action="DeselectAllFranchises" class="btn btn-danger">Deselect All</a>
+        </div>
+    </div>
+
+
+</div>
+
