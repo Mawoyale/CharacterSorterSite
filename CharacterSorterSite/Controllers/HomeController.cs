@@ -57,6 +57,8 @@ namespace CharacterSorterSite.Controllers
             return View("Index", franchiseViewModel);
         }
 
+
+
         public IActionResult MyAction()
         {
             string message = "Hello, World!"; // Set view data

@@ -1,9 +1,4 @@
-global using System.ComponentModel.DataAnnotations;
-global using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-using CharacterSorterSite.Data;
 using CharacterSorterSite.Extensions;
-
 
 var builder = WebApplication.CreateBuilder(args);
 

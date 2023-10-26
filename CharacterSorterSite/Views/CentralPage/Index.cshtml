@@ -5,13 +5,17 @@
 <div class="container border border-5 border-dark">
     <div class="row">
         <div class="col border border-3 border-dark height2">
-            <button type="button">Status Summary</button>
+            <a asp-controller="Centralpage" asp-action= class="btn btn-primary">
+                Status Summary
+            </a>
         </div>
         <div class="col border border-3 border-dark height3">
             <label for="firstboxText">Central Page </label>
         </div>
         <div class="col border border-3 border-dark height2">
-            <button type="button">Filters</button>
+            <a asp-controller="Centralpage" asp-action= class="btn btn-primary">
+                Filters
+            </a>
         </div>
     </div>
 
@@ -28,8 +32,10 @@
     </div>
 
     <div class="row">
-        <div class="col border border-3 border-dark height2">
-            <button type="button">Initiate Voting!</button>
+        <div class="col border border-3 border-dark height2 center-this-button">
+            <a asp-controller="Centralpage" asp-action= class="btn btn-success">
+                Initiate Voting
+            </a>
         </div>
     </div>
 </div>

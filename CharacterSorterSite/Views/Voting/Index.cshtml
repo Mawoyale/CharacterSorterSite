@@ -1,0 +1,17 @@
+﻿@model List<CharacterSorterSite.Models.Character>
+@*@Model*@
+
+@*@static Random rnd = new Random();
+@int randomChara = rnd.Next(list.Count)
+@Message.Show((string)list[r]);*@
+
+@*@foreach (var franchise in Model)
+{
+    <h1>@franchise.Name</h1>
+}*@
+
+
+<img title="@Model[0].Name" src="@Model[0].CharacterImage" alt="@Model[0].Name" />
+<img title="@Model[1].Name" src="@Model[1].CharacterImage" alt="@Model[1].Name" />
+
+

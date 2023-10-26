@@ -1,6 +1,6 @@
 ﻿@model CharacterSorterSite.ViewModels.FranchiseViewModel
 
-<h1>Balsimiq Page 1</h1>
+<h1>(Central Page  This Central Page is intending to replace the other)</h1>
 
 <div class="container border border-5 border-dark">
     <div class="row">
@@ -16,77 +16,76 @@
             </label>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col border border-3 border-dark center-this-button">
-            <a asp-controller="CentralPage" asp-action="Index" class="btn btn-danger">
-                Proceed
-            </a>
+    <form id="franchiseForm" action="https://localhost:7244/voting/index" method="post">
+        <div class="row">
+            <div class="col border border-3 border-dark center-this-button">
+                <button id="proceedButton" type="button" class="btn btn-danger">
+                    Proceed
+                </button>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col height2 border border-3 border-dark text-center">
-            <label for="firstboxText">Choose your filters below </label>
+        <div class="row">
+            <div class="col height2 border border-3 border-dark text-center">
+                <label for="firstboxText">Choose your filters below </label>
+            </div>
         </div>
-    </div>
 
-    <div class="row row-cols-3">
-        @foreach (Franchise franchise in Model.Franchises)
-        {
-            @if (Model.SelectAll == true)
+        <div class="row row-cols-3">
+            @foreach (Franchise franchise in Model.Franchises)
             {
-                <div class="col">
-                    <div class="form-check-input-active-filter">
-                        <input class="form-check-input" checked type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            @franchise.Name
+                @if (Model.SelectAll == true)
+                {
+                    <div class="col">
+                        <div class="form-check-input-active-filter">
+                            <input class="form-check-input franchise-checkbox" checked type="checkbox" value="@franchise.Id" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                @franchise.Name
 
-                        </label>
+                            </label>
+                        </div>
                     </div>
-                </div>
-            }
-            else if (Model.DeselectAll == true)
-            {
-                <div class="col">
-                    <div class="form-check-input-active-filter">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            @franchise.Name
-                        </label>
+                }
+                else if (Model.DeselectAll == true)
+                {
+                    <div class="col">
+                        <div class="form-check-input-active-filter">
+                            <input class="form-check-input franchise-checkbox" type="checkbox" value="@franchise.Id" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                @franchise.Name
+                            </label>
+                        </div>
                     </div>
-                </div>
-            }
-            else if (franchise.Name == "Naruto")
-            {
-                <div class="col">
-                    <div class="form-check-input-active-filter">
-                        <input class="form-check-input" checked type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            @franchise.Name
+                }
+                else if (franchise.Name == "Naruto")
+                {
+                    <div class="col">
+                        <div class="form-check-input-active-filter">
+                            <input class="form-check-input franchise-checkbox" checked type="checkbox" value="@franchise.Id" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                @franchise.Name
 
-                        </label>
+                            </label>
+                        </div>
                     </div>
-                </div>
-            }
-            else
-            {
-                <div class="col">
-                    <div class="form-check-input-active-filter">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            @franchise.Name
+                }
+                else
+                {
+                    <div class="col">
+                        <div class="form-check-input-active-filter ">
+                            <input class="form-check-input franchise-checkbox" type="checkbox" value="@franchise.Id" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                @franchise.Name
 
-                        </label>
+                            </label>
+                        </div>
                     </div>
-                </div>
+                }
             }
-        }
+        </div>
+    </form>
 
 
-
-
-    </div>
     <div class="row justify-content-between">
         <div class="col-auto">
             <a asp-controller="Home" asp-action="SelectAllFranchises" class="btn btn-primary">Select All</a>
@@ -99,3 +98,47 @@
 
 </div>
 
+<div class="container border border-5 border-red">
+    <div class="row">
+        <div class="col border border-3 border-dark height2">
+            <a asp-controller="Centralpage" asp-action= class="btn btn-primary">
+                Status Summary
+            </a>
+        </div>
+        <div class="col border border-3 border-dark height3">
+            <label for="firstboxText">Central Page </label>
+        </div>
+        <div class="col border border-3 border-dark height2">
+            <a asp-controller="Centralpage" asp-action= class="btn btn-primary">
+                Filters
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col border border-3 border-dark height2">
+            <input type="text" placeholder="Search.." />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col border border-3 border-dark height2">
+            <label for="firstboxText">Character Viewer </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col border border-3 border-dark height2 center-this-button">
+            <a asp-controller="Centralpage" asp-action= class="btn btn-success">
+                Initiate Voting
+            </a>
+        </div>
+    </div>
+    <div class="row"> @*update checklist button here*@
+        <div class="center-this-button">
+            <button id="updateChecklistButton">
+                UpdateChecklist
+            </button>
+        </div>
+    </div>
+</div>
