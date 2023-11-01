@@ -1,4 +1,4 @@
-﻿@model List<CharacterSorterSite.Models.Character>
+﻿@model CharacterSorterSite.ViewModels.VotingViewModel
 @*@Model*@
 
 @*@static Random rnd = new Random();
@@ -11,7 +11,98 @@
 }*@
 
 
-<img title="@Model[0].Name" src="@Model[0].CharacterImage" alt="@Model[0].Name" />
-<img title="@Model[1].Name" src="@Model[1].CharacterImage" alt="@Model[1].Name" />
+<div class="container border border-3 border-dark">
+    <div class="row justify-content-between">
+
+        <div class="col border border-3 border-dark ">
+            <div class="row justify-content-center">
+                <div class="col border border-2 border-success">
+                    <div class="d-flex justify-content-center">
+                        <img width="375" height="450" title="@Model.Characters[0].Name" src="@Model.Characters[0].CharacterImage" alt="@Model.Characters[0].Name" />
+                    </div>
+                </div>
+                <div class="border border-2 border-info d-flex justify-content-center">
+                    <p>
+                        @Model.Characters[0].Name
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col center-this-button">
+                    <form asp-controller="Voting" asp-action="MatchMakingFirstCharacter" method="post">
+                        <input type="hidden" asp-for="FirstCharacterId" value="@Model.Characters[0].Id" />
+                        <input type="hidden" asp-for="SecondCharacterId" value="@Model.Characters[1].Id" />
+                        <input type="hidden" asp-for="FranchiseIds"/>
+                        <button id="character1Vote" type="submit" class="btn btn-info">Vote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="row">
+                <div class="col border border-2 border-danger">
+                    <div class="card text-bg-primary mb-3">
+                        <div class="card-body">
+                            <p class="card-text">
+                                Welcome to the Character sorter, where you will be putting characters from different game franchises,
+                                anime, or manga to comfortably sort who is really your favourites
+                            </p>
+                        </div>
+                    </div>                  
+                </div>                         
+            </div>
+
+
+            <div class="row">
+                <div class="col border border-2 border-danger">
+                    <div class="card text-bg-primary mb-3" >
+                        <div class="card-body justify-content-center">
+                            <h3 class="card-text">
+                                Which Character do you like more?
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center-this-button">
+                <button type="button" class="btn btn-info">Confirm</button>
+            </div>
+
+            <div class="center-this-button">
+                <button type="button" class="btn btn-info">Cancel</button>
+            </div>
+        </div>
+
+        <div class="col border border-3 border-dark">
+            <div class="row">
+                <div class="col border border-2 border-success">
+                    <div class="d-flex justify-content-center">
+                        <img width="375" height="450" title="@Model.Characters[1].Name" src="@Model.Characters[1].CharacterImage" alt="@Model.Characters[1].Name" />
+                    </div>
+                </div>
+                <div class="border border-2 border-info d-flex justify-content-center">
+                    <p>
+                        @Model.Characters[1].Name
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col center-this-button">
+                    <form asp-controller="Voting" asp-action="MatchMakingSecondCharacter" method="post">
+                        <input type="hidden" asp-for="FirstCharacterId" value="@Model.Characters[0].Id" />
+                        <input type="hidden" asp-for="SecondCharacterId" value="@Model.Characters[1].Id" />
+                        <input type="hidden" asp-for="FranchiseIds" />
+                        <button id="character2Vote" type="submit" class="btn btn-info">Vote</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 

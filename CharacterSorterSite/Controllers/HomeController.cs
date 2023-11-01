@@ -21,41 +21,12 @@ namespace CharacterSorterSite.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public  IActionResult Index()
         {
-            List<Franchise> franchises = await _context.Franchises.ToListAsync();
-
-            FranchiseViewModel franchiseViewModel = new FranchiseViewModel()
-            {
-                Franchises = franchises,
-
-            };
-            return View(franchiseViewModel);
+            return View();
         }
 
-        public async Task<IActionResult> SelectAllFranchises()
-        {
-            List<Franchise> franchises = await _context.Franchises.ToListAsync();
-
-            FranchiseViewModel franchiseViewModel = new FranchiseViewModel()
-            {
-                Franchises = franchises,
-                SelectAll = true
-            };
-            return View("Index", franchiseViewModel);
-        }
-
-        public async Task<IActionResult> DeselectAllFranchises()
-        {
-            List<Franchise> franchises = await _context.Franchises.ToListAsync();
-
-            FranchiseViewModel franchiseViewModel = new FranchiseViewModel()
-            {
-                Franchises = franchises,
-                DeselectAll = true
-            };
-            return View("Index", franchiseViewModel);
-        }
+        
 
 
 

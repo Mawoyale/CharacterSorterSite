@@ -16,10 +16,10 @@
             </label>
         </div>
     </div>
-    <form id="franchiseForm" action="https://localhost:7244/voting/index" method="post">
+    <form id="franchiseForm" asp-controller="Voting" asp-action="Index" method="post">
         <div class="row">
-            <div class="col border border-3 border-dark center-this-button">
-                <button id="proceedButton" type="button" class="btn btn-danger">
+            <div id="proceedToVoting" class="col border border-3 border-dark center-this-button">
+                <button id="proceedButton" type="submit" class="btn btn-danger">
                     Proceed
                 </button>
             </div>
@@ -32,66 +32,63 @@
         </div>
 
         <div class="row row-cols-3">
-            @foreach (Franchise franchise in Model.Franchises)
-            {
-                @if (Model.SelectAll == true)
-                {
-                    <div class="col">
-                        <div class="form-check-input-active-filter">
-                            <input class="form-check-input franchise-checkbox" checked type="checkbox" value="@franchise.Id" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                @franchise.Name
+            <div class="col">
+                <div class="form-check-input-active-filter">
+                    <input asp-for="NarutoFranchiseID"  class="form-check-input franchise-checkbox" value="1" checked type="checkbox">
+                    <label asp-for="NarutoFranchiseID" class="form-check-label"></label>
+                </div>
+            </div>
 
-                            </label>
-                        </div>
-                    </div>
-                }
-                else if (Model.DeselectAll == true)
-                {
-                    <div class="col">
-                        <div class="form-check-input-active-filter">
-                            <input class="form-check-input franchise-checkbox" type="checkbox" value="@franchise.Id" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                @franchise.Name
-                            </label>
-                        </div>
-                    </div>
-                }
-                else if (franchise.Name == "Naruto")
-                {
-                    <div class="col">
-                        <div class="form-check-input-active-filter">
-                            <input class="form-check-input franchise-checkbox" checked type="checkbox" value="@franchise.Id" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                @franchise.Name
+            <div class="col">
+                <div class="form-check-input-active-filter">
+                    <input asp-for="ClannadFranchiseID" class="form-check-input franchise-checkbox" value="2"  type="checkbox">
+                    <label asp-for="ClannadFranchiseID" class="form-check-label"></label>
+                </div>
+            </div>
 
-                            </label>
-                        </div>
-                    </div>
-                }
-                else
-                {
-                    <div class="col">
-                        <div class="form-check-input-active-filter ">
-                            <input class="form-check-input franchise-checkbox" type="checkbox" value="@franchise.Id" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                @franchise.Name
+            <div class="col">
+                <div class="form-check-input-active-filter">
+                    <input asp-for="SteinsGateFranchiseID" class="form-check-input franchise-checkbox" value="3"  type="checkbox">
+                    <label asp-for="SteinsGateFranchiseID" class="form-check-label"></label>
+                </div>
+            </div>
 
-                            </label>
-                        </div>
-                    </div>
-                }
-            }
+            <div class="col">
+                <div class="form-check-input-active-filter">
+                    <input asp-for="UminekoFranchiseID" class="form-check-input franchise-checkbox" value="4"  type="checkbox">
+                    <label asp-for="UminekoFranchiseID" class="form-check-label"></label>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-check-input-active-filter">
+                    <input asp-for="GurrenLagannFranchiseID" class="form-check-input franchise-checkbox" value="5"  type="checkbox">
+                    <label asp-for="GurrenLagannFranchiseID" class="form-check-label"></label>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-check-input-active-filter">
+                    <input asp-for="YuukiYuunaFranchiseID" class="form-check-input franchise-checkbox" value="6"  type="checkbox">
+                    <label asp-for="YuukiYuunaFranchiseID" class="form-check-label"></label>
+                </div>
+            </div>
+
         </div>
+
+      
+
+      
+
     </form>
 
 
     <div class="row justify-content-between">
         <div class="col-auto">
-            <a asp-controller="Home" asp-action="SelectAllFranchises" class="btn btn-primary">Select All</a>
+            <button id="SelectAllButton" type="button" class="btn btn-primary">Select All</button>
         </div>
         <div class="col-auto">
-            <a asp-controller="Home" asp-action="DeselectAllFranchises" class="btn btn-danger">Deselect All</a>
+            <button id="DeselectAllButton" type="button" class="btn btn-danger">Deselect All</button>
         </div>
     </div>
 
