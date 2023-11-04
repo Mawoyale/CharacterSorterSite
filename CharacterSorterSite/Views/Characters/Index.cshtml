@@ -4,12 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+@*<h1>Index</h1>*@
 
-<p>
+@*<p>
     <a asp-controller="Characters" asp-action="Create">Create New</a>
 </p>
-
+*@
 
 
 <table class="table">
@@ -20,14 +20,14 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
   
-            <th>
+         @*   <th>
                 @Html.DisplayNameFor(model => model.VoteCount)
-            </th>
+            </th>*@
 
             <th>
                 @Html.DisplayNameFor(model => model.CharacterImage)
             </th>
-            <th></th>
+            @*<th></th>*@
         </tr>
     </thead>
     <tbody>
@@ -37,18 +37,18 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.VoteCount)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.CharacterImage)
                     <img src="@item.CharacterImage" class="img-fluid img-thumbnail" style="height: 150px" />
                 </td>
           
                 <!-- TO DO: Add links for Edit, Details, and Delete pages -->
-                <td>
+                @*<td>
                     <a asp-controller="Characters" asp-action="Details" asp-route-Id="@item.Id">Details</a> |
-                </td>
+                </td>*@
             </tr>
         }
     </tbody>

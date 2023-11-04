@@ -1,0 +1,37 @@
+﻿@model List<CharacterSorterSite.Models.Character>
+
+<h1 class="display-1">Matches are Done ! </h1>
+
+@{
+    int count = 0;
+}
+
+
+<div class="container">
+    <table class="table table-bordered border border-3 border-dark w-auto">
+        <thead>
+            <tr>
+                <th scope="col" class="border border-3 border-dark">#</th>
+                <th scope="col" class="border border-3 border-dark">Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Character character in Model)
+            {
+                <tr>
+                    <td scope="row" class="border border-3 border-dark"><span>@(++count)</span></td>
+                    <td class="border border-3 border-dark">
+                        <div>
+                            <img src="@character.CharacterImage" width="125" height="150">
+                        </div>
+                        <p>@character.Name</p>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

@@ -7,5 +7,6 @@
         public int CharacterThatWonId { get; set; } //(the winner) foreign key property
 
         public int CharacterThatLostId { get; set; } //foreign key property
+
     }
 }
